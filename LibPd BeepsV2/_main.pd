@@ -1,0 +1,114 @@
+#N canvas 43 61 1318 669 12;
+#X msg 922 81 \; pd dsp 1 \;;
+#X obj 922 26 loadbang;
+#X floatatom 50 300 5 0 0 0 - - -;
+#X obj 50 455 *~;
+#X obj 51 626 dac~;
+#X obj 51 13 r height_y;
+#X text 133 14 height = pitch - range midi notes = 45 - 95 ? 5 octaves
+;
+#N canvas 463 207 720 524 synth 0;
+#X obj 51 98 mtof;
+#X obj 52 155 osc~;
+#X obj 53 270 *~;
+#X obj 169 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 247 132 del 10;
+#X obj 247 155 pack 0 500;
+#X obj 247 178 line~;
+#X obj 247 201 *~;
+#X obj 247 224 *~;
+#X msg 169 139 1 5;
+#X floatatom 336 129 5 0 0 0 - - -;
+#X obj 335 105 r dist_z;
+#X text 56 177 replace raindrop synthesis;
+#X text 405 105 needs to be in 1000 = decay (may need to swap with
+x);
+#X obj 50 50 inlet;
+#X obj 52 336 outlet~;
+#X obj 295 59 loadbang;
+#X msg 295 82 2000;
+#X msg 413 72 10;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 15 0;
+#X connect 3 0 9 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 8 0 2 1;
+#X connect 9 0 6 0;
+#X connect 10 0 5 1;
+#X connect 11 0 10 0;
+#X connect 14 0 0 0;
+#X connect 16 0 17 0;
+#X connect 17 0 10 0;
+#X connect 18 0 10 0;
+#X restore 920 142 pd synth;
+#X obj 151 430 loadbang;
+#X msg 51 342 next \$1;
+#X floatatom 921 231 5 0 0 0 - - -;
+#X obj 921 202 r dist_z;
+#X obj 921 255 s _decay;
+#X text 69 566 Semantic Filtering here would go here - i.e window;
+#X text 918 281 decay time impacting clone - range 1-2000;
+#X text 118 41 lets see what we get;
+#X text 92 300 midi pitch - keep range from abive in 45-95 = 5 octaves
+;
+#X text 114 333 pushes next numebr into clone for voicing whilst still
+paying before - performative as done procedurally from one OSC~ object
+;
+#X obj 51 388 clone synth.cl 255;
+#X text 199 386 this could be 32 / 64 /128 / 255 clone voicing of the
+[pd synth] object - start on max \, might be to much can come down
+;
+#X text 94 625 Spatialised by google resonance? or???/;
+#X text 917 163 original beeps / replace with more complex sound design
+- water drops;
+#X text 322 61 comment;
+#X floatatom 133 138 5 0 0 0 - - -;
+#X msg 134 180 next \$1;
+#X obj 134 226 clone synth.cl 255;
+#X floatatom 313 138 5 0 0 0 - - -;
+#X msg 314 180 next \$1;
+#X obj 314 226 clone synth.cl 255;
+#X obj 132 95 r geo_z;
+#X obj 313 97 r geo_x;
+#X text 189 94 geometry z;
+#X text 380 97 geometry x;
+#X msg 151 453 1;
+#X text 156 410 comment;
+#X text 543 14 comment;
+#X text 850 555 3 stream of sonfication;
+#X obj 553 97 r seat;
+#X obj 553 141 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 595 139 on / off;
+#X obj 554 194 print;
+#X text 603 196 debug;
+#X connect 1 0 0 0;
+#X connect 2 0 9 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 2 0;
+#X connect 8 0 33 0;
+#X connect 9 0 18 0;
+#X connect 10 0 12 0;
+#X connect 11 0 10 0;
+#X connect 18 0 3 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 3 0;
+#X connect 26 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 3 0;
+#X connect 29 0 23 0;
+#X connect 30 0 26 0;
+#X connect 33 0 3 1;
+#X connect 37 0 38 0;
+#X connect 38 0 40 0;
